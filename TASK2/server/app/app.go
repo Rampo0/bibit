@@ -22,7 +22,7 @@ var (
 )
 
 func runHttpServer() {
-	// REST
+
 	movieHandler := controllers.NewMovieHandler(movieService)
 
 	router.GET("/detail", movieHandler.Detail)
@@ -34,7 +34,7 @@ func runHttpServer() {
 }
 
 func runGRPCServer() {
-	//gRPC
+
 	lis, err := net.Listen("tcp", "0.0.0.0:50051")
 	if err != nil {
 		log.Fatal("Failed to listen: %v", err)
