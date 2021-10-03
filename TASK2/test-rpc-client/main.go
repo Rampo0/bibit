@@ -10,12 +10,13 @@ import (
 
 func doUnaryDetail(client moviepb.MovieServiceClient) {
 	req := &moviepb.DetailRequest{
-		Id: "tt4853102z",
+		Id: "tt4853102",
 	}
 
 	res, err := client.Detail(context.Background(), req)
 	if err != nil {
 		log.Printf("Error while calling detail request : %v", err)
+		return
 	}
 
 	log.Printf("Response from MovieRPCService : %v", res)
@@ -30,6 +31,7 @@ func doUnarySearch(client moviepb.MovieServiceClient) {
 	res, err := client.Search(context.Background(), req)
 	if err != nil {
 		log.Printf("Error while calling detail request : %v", err)
+		return
 	}
 	log.Printf("Response from MovieRPCService : %v", res)
 }
