@@ -8,6 +8,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/rampo0/bibit/layer/application/services"
+	"github.com/rampo0/bibit/layer/infrastructure/db"
 	"github.com/rampo0/bibit/layer/infrastructure/rest"
 	"github.com/rampo0/bibit/layer/presentation/controllers"
 	"github.com/rampo0/bibit/layer/presentation/rpc"
@@ -17,7 +18,7 @@ import (
 
 var (
 	router       = gin.Default()
-	movieService = services.NewMovieService(rest.NewMovieRepository())
+	movieService = services.NewMovieService(rest.NewMovieRepository(), db.NewLoggerRepository())
 )
 
 func runHttpServer() {
@@ -26,6 +27,7 @@ func runHttpServer() {
 
 	router.GET("/detail", movieHandler.Detail)
 	router.GET("/search", movieHandler.Search)
+
 	if err := router.Run(); err != nil {
 		log.Fatal("Failed to listen: %v", err)
 	}
