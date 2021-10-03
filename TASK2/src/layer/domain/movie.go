@@ -17,7 +17,6 @@ type MovieDetailRequest struct {
 type SearchMovieRequest struct {
 	Search string `form:"s"`
 	Page   string `form:"page"`
-	Year   string `form:"y"`
 }
 
 type SearchMovieResponse struct {

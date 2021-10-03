@@ -25,7 +25,6 @@ func doUnarySearch(client moviepb.MovieServiceClient) {
 	req := &moviepb.SearchRequest{
 		Search: "Batman",
 		Page:   "2",
-		Year:   "2016",
 	}
 
 	res, err := client.Search(context.Background(), req)

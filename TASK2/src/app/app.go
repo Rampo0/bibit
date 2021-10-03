@@ -38,6 +38,8 @@ func runGRPCServer() {
 		log.Fatal("Failed to listen: %v", err)
 	}
 
+	defer lis.Close()
+
 	tls := false
 	opts := []grpc.ServerOption{}
 

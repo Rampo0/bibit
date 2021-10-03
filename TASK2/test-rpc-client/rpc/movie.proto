@@ -23,7 +23,6 @@ message DetailResponse {
 message SearchRequest {
     string search = 1;
     string page = 2;
-    string year = 3;
 }
 
 message SearchResponse {
