@@ -18,7 +18,7 @@ type movieHandler struct {
 	service services.MovieService
 }
 
-func NewMovieHandler(service services.MovieService) *movieHandler {
+func NewMovieHandler(service services.MovieService) MovieHandler {
 	return &movieHandler{service}
 }
 

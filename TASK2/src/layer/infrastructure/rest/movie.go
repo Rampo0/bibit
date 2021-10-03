@@ -15,7 +15,7 @@ type MovieRepository interface {
 
 type repository struct{}
 
-func NewMovieRepository() *repository {
+func NewMovieRepository() MovieRepository {
 	return &repository{}
 }
 

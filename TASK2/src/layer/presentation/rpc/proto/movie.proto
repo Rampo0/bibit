@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package rpc;
+
+option go_package="rpc/moviepb";
+
+message Movie {
+    string title = 1;
+    string year = 2;
+    string imdbID = 3;
+    string type = 4;
+    string poster = 5;
+}
+
+message DetailRequest {
+    string id = 1;
+}
+
+message DetailResponse {
+    Movie movie = 1;
+}
+
+message SearchRequest {
+    string search = 1;
+    string page = 2;
+    string year = 3;
+}
+
+message SearchResponse {
+    repeated Movie search = 1;
+    string totalResults = 2;
+    string response = 3;
+}
+
+service MovieService {
+    rpc Detail(DetailRequest) returns (DetailResponse) {};
+    rpc Search(SearchRequest) returns (SearchResponse) {};
+}

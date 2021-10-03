@@ -15,7 +15,7 @@ type service struct {
 	restRepository rest.MovieRepository
 }
 
-func NewMovieService(restRepository rest.MovieRepository) *service {
+func NewMovieService(restRepository rest.MovieRepository) MovieService {
 	return &service{
 		restRepository,
 	}
